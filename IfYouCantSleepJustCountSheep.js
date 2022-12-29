@@ -9,3 +9,5 @@ var countSheep = function (num){
   }
   return count;
 };
+
+console.log(countSheep(10));
