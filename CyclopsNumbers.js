@@ -12,4 +12,4 @@ function cyclops(n) {
     return sequenceLength % 2 && middleElement === '0' && numberOfZero === 1 ? true : false;
 };
 
-console.log(cyclops());
+console.log(cyclops(26));
