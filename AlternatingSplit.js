@@ -1,4 +1,6 @@
 function encrypt(text, n) {
+
+    if (text === '' || text === null) return text;
     
     let input = text.split('');
     let counter = 0;
@@ -23,6 +25,8 @@ function encrypt(text, n) {
 };
 
 function decrypt(encryptedText, n) {
+
+    if (encryptedText === '' || encryptedText === null) return text;
     
     const original = [];
     let input = encryptedText.split('');
