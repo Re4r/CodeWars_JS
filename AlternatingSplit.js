@@ -27,6 +27,7 @@ function decrypt(encryptedText, n) {
     const idxEven = [];
     const original = [];
     const input = encryptedText.split('');
+    console.log(input);
 
     for (let i = 0; i < input.length; i++) {
         if (i % 2 !== 0) idxOdd.push(i);
@@ -36,7 +37,10 @@ function decrypt(encryptedText, n) {
     const idxResult = idxOdd.concat(idxEven);
     console.log(idxResult);
 
-    
+    for (let i = 0; i < input.length; i++) {
+        original[i] = input[idxResult.indexOf(i)];
+    }
+    console.log(original.join(''));
 
    
 };
