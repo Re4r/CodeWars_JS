@@ -1,6 +1,7 @@
 function encrypt(text, n) {
 
     if (text === '' || text === null) return text;
+    if (n === 0) return text;
     
     let input = text.split('');
     let counter = 0;
@@ -15,9 +16,6 @@ function encrypt(text, n) {
             if (i % 2 === 0) outputEven.push(input[i]);
         }
 
-        //console.log(outputOdd.join(''));
-        //console.log(outputEven.join(''));
-
         input = outputOdd.concat(outputEven);
         counter++;
     }
@@ -26,8 +24,8 @@ function encrypt(text, n) {
 
 function decrypt(encryptedText, n) {
 
-    if (encryptedText === '' || encryptedText === null) return text;
-    
+    if (encryptedText === '' || encryptedText === null) return encryptedText;
+    if (n === 0) return encryptedText;
     const original = [];
     let input = encryptedText.split('');
     let counter = 0;
