@@ -26,7 +26,7 @@ function decrypt(encryptedText, n) {
 
     if (encryptedText === '' || encryptedText === null) return encryptedText;
     if (n === 0) return encryptedText;
-    const original = [];
+    
     let input = encryptedText.split('');
     let counter = 0;
     let idxResult = [];
@@ -34,6 +34,7 @@ function decrypt(encryptedText, n) {
     while (counter < n) {
         const idxOdd = [];
         const idxEven = [];
+        const original = [];
 
         for (let i = 0; i < input.length; i++) {
             if (i % 2 !== 0) idxOdd.push(i);
@@ -45,10 +46,11 @@ function decrypt(encryptedText, n) {
         for (let i = 0; i < input.length; i++) {
             original[i] = input[idxResult.indexOf(i)];
         }
+        input = original;
         counter++;
     }    
-    return original.join('');
+    return input.join('');
 };
 
-console.log(encrypt("This is a test!", 3));
-console.log(decrypt("hsi  etTi sats!", 3));
+console.log(encrypt("Kobayashi-Maru-Test", 5));
+console.log(decrypt("oaah-auTsKbysiMr-et", 1));
