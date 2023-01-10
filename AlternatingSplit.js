@@ -13,8 +13,8 @@ function encrypt(text, n) {
             if (i % 2 === 0) outputEven.push(input[i]);
         }
 
-        console.log(outputOdd.join(''));
-        console.log(outputEven.join(''));
+        //console.log(outputOdd.join(''));
+        //console.log(outputEven.join(''));
 
         input = outputOdd.concat(outputEven);
         counter++;
@@ -23,7 +23,22 @@ function encrypt(text, n) {
 };
 
 function decrypt(encryptedText, n) {
-    console.log(input);
+    const idxOdd = [];
+    const idxEven = [];
+    const original = [];
+    const input = encryptedText.split('');
+
+    for (let i = 0; i < input.length; i++) {
+        if (i % 2 !== 0) idxOdd.push(i);
+        if (i % 2 === 0) idxEven.push(i);
+    }
+
+    const idxResult = idxOdd.concat(idxEven);
+    console.log(idxResult);
+
+    
+
+   
 };
 
 console.log(encrypt("This is a test!", 1));
