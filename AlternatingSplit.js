@@ -23,27 +23,30 @@ function encrypt(text, n) {
 };
 
 function decrypt(encryptedText, n) {
-    const idxOdd = [];
-    const idxEven = [];
+    
     const original = [];
-    const input = encryptedText.split('');
-    console.log(input);
+    let input = encryptedText.split('');
+    let counter = 0;
+    let idxResult = [];
+    
+    while (counter < n) {
+        const idxOdd = [];
+        const idxEven = [];
 
-    for (let i = 0; i < input.length; i++) {
-        if (i % 2 !== 0) idxOdd.push(i);
-        if (i % 2 === 0) idxEven.push(i);
-    }
+        for (let i = 0; i < input.length; i++) {
+            if (i % 2 !== 0) idxOdd.push(i);
+            if (i % 2 === 0) idxEven.push(i);
+        }
 
-    const idxResult = idxOdd.concat(idxEven);
-    console.log(idxResult);
+        idxResult = idxOdd.concat(idxEven);
 
-    for (let i = 0; i < input.length; i++) {
-        original[i] = input[idxResult.indexOf(i)];
-    }
-    console.log(original.join(''));
-
-   
+        for (let i = 0; i < input.length; i++) {
+            original[i] = input[idxResult.indexOf(i)];
+        }
+        counter++;
+    }    
+    return original.join('');
 };
 
-console.log(encrypt("This is a test!", 1));
-console.log(decrypt("hsi  etTi sats!", 1));
+console.log(encrypt("This is a test!", 3));
+console.log(decrypt("hsi  etTi sats!", 3));
