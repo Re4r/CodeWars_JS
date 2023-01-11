@@ -1,6 +1,6 @@
 function duplicateEncode(word) {
     const input = word.toLowerCase().split('');
-    const inputObj = new Map;
+    const inputObj = {};
     const output = [];
 
     for (let item of input) {
